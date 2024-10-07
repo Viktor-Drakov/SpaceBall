@@ -183,7 +183,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 809428296}
   - component: {fileID: 809428295}
   - component: {fileID: 809428294}
+  - component: {fileID: 809428297}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -296,7 +297,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -313,6 +314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54919717aa1c882449b74227420aac26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 809428296}
+  rotationSpeed: 200
+  thrustForce: 0.5
 --- !u!60 &809428295
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -388,6 +392,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &809428297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809428291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d22ca5aa6cb984d8f870f3e9d29dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

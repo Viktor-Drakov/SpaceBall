@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class ScreenWrappingScript : MonoBehaviour
 {
-    private float screenTop;
-    private float screenBottom;
-    private float screenLeft;
-    private float screenRight;
+    private float screenTop = 6.1f;
+    private float screenBottom = -6.1f;
+    private float screenLeft = -10.8f;
+    private float screenRight = 10.8f;
     // Start is called before the first frame update
     void Start()
     {
-        // Calculate camera boundaries in world units
-        Camera cam = Camera.main;
-        screenTop = cam.orthographicSize;
-        screenBottom = -cam.orthographicSize;
-        screenRight = cam.aspect * screenTop;
-        screenLeft = -screenRight;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        UnityEngine.Vector2 newPosition = transform.position;  // Specify UnityEngine.Vector2 explicitly
+        // Shorthand for update the position
+        Vector3 newPosition = transform.position;
 
-        // Check if the player has moved beyond the screen boundaries
+        // Check if the player has moved beyond the limits of the camera
         if (transform.position.y > screenTop)
         {
+            // Update the player position in the opposite position
             newPosition.y = screenBottom;
         }
         else if (transform.position.y < screenBottom)
@@ -43,7 +40,7 @@ public class ScreenWrappingScript : MonoBehaviour
             newPosition.x = screenRight;
         }
 
-        // Apply the new position if the player has gone off the screen
+        // Shorthand for update position
         transform.position = newPosition;
     }
 }
